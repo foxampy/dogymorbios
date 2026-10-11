@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-textMain;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Отключение выделения текста для тактильного ощущения */
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    @apply font-bold;
+  }
+
+  /* Плавная прокрутка с эффектом отскока */
+  html {
+    scroll-behavior: smooth;
+    overscroll-behavior-y: contain;
+  }
+
+  /* Кастомный курсор - лапка */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    cursor: text;
+  }
+}
+
+@layer utilities {
+  /* Эластичная прокрутка */
+  .elastic-scroll {
+    overscroll-behavior: contain;
+  }
+
+  /* Текстура плюша */
+  .plush-texture {
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(0,0,0,0.02) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  /* Эффект мокрого носа для кнопок */
+  .wet-nose {
+    background: linear-gradient(135deg, #FF9F89 0%, #FF8E72 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wet-nose::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+    pointer-events: none;
+  }
+}
+
